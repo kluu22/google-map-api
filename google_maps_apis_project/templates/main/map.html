@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3 id="map">A Google Maps APIs Project - Map</h3>
+
+<div class="container">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Start Address</td>
+        <td>{{directions.origin_address}}</td>
+      </tr>
+      <tr>
+        <td>Start Latitude,Longitude</td>
+        <td>{{directions.origin}}</td>      
+      </tr>
+      <tr>
+        <td>Destination Address</td>
+        <td>{{directions.destination_address}}</td>
+      </tr>
+      <tr>
+        <td>Destination Latitude,Longitude</td>
+        <td>{{directions.destination}}</td>      
+      </tr>
+      <tr>
+        <td>Duration</td>
+        <td>{{directions.duration}}</td>      
+      </tr>
+      <tr>
+        <td>Distance using API</td>
+        <td>{{directions.distance}}</td>      
+      </tr>
+      <tr>
+        <td>Distance using Haversine Formula</td>
+        <td>{{directions.distance_formula}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+<br/><br/>
+<h3>Bonus</h3>
+  <table id="dir-table">
+    <thead>
+      <tr>
+        <th>Directions</th>
+        <th>Distance</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for leg in directions.route %}
+          <tr>
+          <td>Leg {{ forloop.counter }}</td>
+          <td></td>
+          <td></td>  
+        </tr>
+        {% for dist, dur, text in leg.steps %}
+        <tr>
+          <td>{{text|safe}}</td>
+          <td>{{dist}}</td>
+          <td>{{dur}}</td>   
+        </tr>
+        {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<div class="map-container">
+
+   <div id="map-route"></div>
+
+
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+<script type="text/javascript">
+
+    var google_api_key = "{{google_api_key|safe}}";
+    var lat_a = {{lat_a|safe}};
+    var long_a = {{long_a|safe}};
+    var lat_b = {{lat_b|safe}};
+    var long_b = {{long_b|safe}};
+    var origin = "{{origin|safe}}";
+    var destination = "{{destination|safe}}";
+    var directions = {{directions|safe}}
+
+  </script>
+
+  <script src="{% static 'google_maps.js' %}"></script>
+
+
+{% endblock %}

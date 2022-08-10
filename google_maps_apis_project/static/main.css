@@ -1,0 +1,197 @@
+body {font-family: 'Verdana', monospace;}
+* {box-sizing: border-box;}
+
+body {
+
+  margin: 0;
+}
+
+body, html, .map-container {
+  height: 100%;
+}
+
+#map-route {
+  height: 65%;
+  }
+
+/* Style the navigation bar */
+ul.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navbar links */
+ul.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+ul.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+ul.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+.div-container {
+
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #555;
+  font-family: 'Verdana', monospace;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #555;
+  font-family: 'Verdana', monospace;
+}
+
+::placeholder {
+  color: #555;
+  font-family: 'Verdana', monospace;
+}
+
+select.selection option,
+{
+  color: #555;
+  font-family: 'Verdana', monospace;
+}
+
+input, select{
+  color: #555;
+  font-family: 'Verdana', monospace;
+
+}
+
+/* The container */
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #9c07b6;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #9c07b6;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.container {
+  border-radius: 5px;
+}
+
+table {
+  font-family: 'Verdana', monospace;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: black;
+}
+
+.selected {
+  background-color: #730786;
+  color: #FFF;
+}
+
+#payment-form {
+  width: 100%;
+}
+
+/* style inputs and link buttons */
+input, select,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: solid;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+}

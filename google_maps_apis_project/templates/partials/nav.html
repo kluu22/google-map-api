@@ -1,0 +1,13 @@
+<ul class="navbar">
+  {% if "route" in request.path %}
+  <a class="active" href="{% url 'main:route' %}">Route</a>
+  {% else %}
+  <a href="{% url 'main:route' %}">Route</a>
+  {% endif %}
+
+  {% if "map" in request.path %}
+  <a class="active" href="{% url 'main:map' %}">Map</a>
+  {% else %}
+  <a href="{% url 'main:map' %}">Map</a>
+  {% endif %}
+</ul>
